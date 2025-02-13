@@ -84,11 +84,11 @@ const Approvels = () => {
                 alt={gym.gym_name}
                 className="w-4/12 h-44 object-cover rounded-md"
               />
-              <div>
+              <div className="[&>*]:mb-1">
                 <h2 className="text-2xl font-semibold text-gray-900">
                   {gym.gym_name || "Gym Name"}
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-600 mt-2">
                   Address: {gym.address || "Not Available"}
                 </p>
                 <p className="text-gray-600">

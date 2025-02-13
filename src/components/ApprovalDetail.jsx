@@ -13,7 +13,7 @@ const ApprovalDetail = ({ gym }) => {
   const handleUpdateApproval = async () => {
     try {
       const docRef = doc(db, "Gyms", gym.id);
-      await updateDoc(docRef, { isApproved: "Approved", gymType: gymType });
+      await updateDoc(docRef, { isApproved: "Approved", gym_type: gymType });
       setShowPopup(false);
       toast.success("Gym Approved successfully");
       navigate("/gyms");
@@ -139,20 +139,21 @@ const ApprovalDetail = ({ gym }) => {
           </h1>
         </div>
       </div>
-      <div className="bg-gray-200 my-2 w-full rounded-md items-center justify-center flex">
+      <div className="bg-gray-200 my-4 w-full rounded-lg flex items-center justify-center space-x-4 py-4">
         <button
-          className="bg-gray-800 my-4 hover:scale-95 text-white hover:bg-gray-900 px-6 py-1 rounded-md"
+          className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-2 rounded-md shadow-md hover:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2"
           onClick={() => handleActionClick("approve")}
         >
           Approve Gym
         </button>
         <button
-          className="bg-gray-800 my-4 hover:scale-95 text-white hover:bg-gray-900 px-6 py-1 rounded-md"
+          className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-md shadow-md hover:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
           onClick={() => handleActionClick("reject")}
         >
           Reject Gym
         </button>
       </div>
+
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-md shadow-md">

@@ -76,7 +76,7 @@ const Gyms = () => {
         {gyms.map((gym) => (
           <div
             key={gym.id}
-            className="bg-gradient-to-r from-gray-50 to-slate-300 shadow-xl rounded-md p-4 flex flex-row justify-between hover:scale-95 transition-all duration-300 "
+            className="bg-gradient-to-r from-gray-50 to-slate-300 shadow-xl rounded-md p-4 flex flex-row justify-between hover:ring-4 transition-all duration-300 "
           >
             <div className="flex flex-row space-x-6 w-5/6">
               <img
@@ -94,13 +94,22 @@ const Gyms = () => {
                 <p className="text-gray-600">
                   Contact Number: {gym.contact_number || "Not Available"}
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 ">
                   Contact Email: {gym.email || "Not Available"}
                 </p>
+
                 {gym.isApproved !== "Not-Approved" ? (
-                  <p className="text-gray-600">
-                    Gym Type: {gym.gymType || "Not Available"}
-                  </p>
+                  <button
+                    className={`text-gray-600 rounded-md py-2 my-1 px-3 ${
+                      gym.gym_type === "Silver"
+                        ? "bg-yellow-200"
+                        : gym.gym_type === "Diamond"
+                        ? "bg-green-400"
+                        : "bg-blue-400 text-white"
+                    }`}
+                  >
+                    Gym Type: {gym.gym_type || "Not Available"}
+                  </button>
                 ) : (
                   <div></div>
                 )}
