@@ -76,19 +76,19 @@ const Gyms = () => {
         {gyms.map((gym) => (
           <div
             key={gym.id}
-            className="bg-gradient-to-r from-gray-50 to-slate-300 shadow-xl rounded-md p-4 flex flex-row justify-between hover:scale-95 transition-all duration-300"
+            className="bg-gradient-to-r from-gray-50 to-slate-300 shadow-xl rounded-md p-4 flex flex-row justify-between hover:scale-95 transition-all duration-300 "
           >
-            <div className="flex flex-row space-x-6 w-5/6 ">
+            <div className="flex flex-row space-x-6 w-5/6">
               <img
                 src={gym.images[0] || "/assets/DefaultGym.png"}
                 alt={gym.gym_name}
                 className="w-4/12 h-44 object-cover rounded-md"
               />
-              <div>
-                <h2 className="text-2xl font-semibold text-gray-900">
+              <div className="[&>*]:mb-1">
+                <h2 className="text-2xl font-semibold text-gray-900 ">
                   {gym.gym_name || "Gym Name"}
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-600 mt-2">
                   Address: {gym.address || "Not Available"}
                 </p>
                 <p className="text-gray-600">
@@ -107,7 +107,7 @@ const Gyms = () => {
                 <p className="text-gray-600">
                   Is Gym Approved: {gym.isApproved || "Not Available"}
                 </p>
-                <p className="text-yellow-600 flex flex-row items-center">
+                <p className="text-yellow-600 flex flex-row items-center gap-2">
                   {gym.ratings}
                   {<FaStar />}
                 </p>
