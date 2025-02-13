@@ -8,11 +8,12 @@ const ApprovalDetail = ({ gym }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [actionType, setActionType] = useState(null); // 'approve' or 'reject'
   const navigate = useNavigate();
+  const [gymType, SetgymType] = useState(gym.gymType);
 
   const handleUpdateApproval = async () => {
     try {
       const docRef = doc(db, "Gyms", gym.id);
-      await updateDoc(docRef, { isApproved: "Approved" });
+      await updateDoc(docRef, { isApproved: "Approved", gymType: gymType });
       setShowPopup(false);
       toast.success("Gym Approved successfully");
       navigate("/gyms");
@@ -69,7 +70,22 @@ const ApprovalDetail = ({ gym }) => {
             Contact Email: {gym.email}
           </p>
           <p className="!text-start text-gray-700">
-            Gym Type: {gym.gym_type || "Not Found"}
+            Gym Type: {gym.gymType || "Not_Decided"}
+            <div className="!text-start text-gray-700">
+              Gym Type:
+              <select
+                value={gym.gymType}
+                onChange={(e) => SetgymType(e.target.value)}
+                className="ml-2 p-1 border rounded-md"
+              >
+                <option value={gym.gym_type || "Not_Decided"}>
+                  {gym.gymType || "Not_Decided"}
+                </option>
+                <option value="Basic">Basic</option>
+                <option value="Silver">Silver</option>
+                <option value="Diamond">Diamond</option>
+              </select>
+            </div>
           </p>
         </div>
       </div>

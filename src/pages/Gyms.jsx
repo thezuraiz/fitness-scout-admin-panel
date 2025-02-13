@@ -99,7 +99,7 @@ const Gyms = () => {
                 </p>
                 {gym.isApproved !== "Not-Approved" ? (
                   <p className="text-gray-600">
-                    Gym Type: {gym.gym_type || "Not Available"}
+                    Gym Type: {gym.gymType || "Not Available"}
                   </p>
                 ) : (
                   <div></div>

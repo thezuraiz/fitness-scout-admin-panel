@@ -98,7 +98,7 @@ const Approvels = () => {
                   Contact Email: {gym.email || "Not Available"}
                 </p>
                 <p className="text-gray-600">
-                  Gym Type: {gym.gym_type || "Not Available"}
+                  Gym Type: {gym.gymType || "Not_Decided"}
                 </p>
                 <p className="text-yellow-600 flex flex-row items-center">
                   {gym.ratings}
